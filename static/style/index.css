@@ -1,0 +1,104 @@
+@import url('https://fonts.googleapis.com/css2?family=Cairo&display=swap');
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+:root{
+    --var-sky:#07C3FE;
+    --var-font: 'Cairo', sans-serif;
+}
+
+html {
+    background-color: #1392b9;
+}
+
+.up {
+    position: relative;
+    width: 100%;
+    display: flex;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+    padding: 1rem;
+    gap: 7px;
+    background-color: #0fa5d3;
+}
+
+.up a {
+    color: #fff;
+    background-color: var(--var-sky);
+    padding: 1rem 2.5rem;
+    border-radius: 8px;
+    font-family: var(--var-font);
+    text-decoration: none;
+}
+
+
+.main {
+    position: relative;
+    margin: 10px auto;
+    width: 80%;
+    text-align: center;
+}
+
+.main select {
+    position: relative;
+    direction: rtl;
+    margin: 10px auto;
+    width: 50%;
+    font-family: var(--var-font);
+    color: var(--var-sky);
+    border: 2px solid var(--var-sky);
+    outline: none;
+    font-weight: bold;
+    padding: 0.5rem 1.5rem;
+}
+
+
+table {
+    font-family: var(--var-font);
+    border-collapse: collapse;
+    width: 100%;
+    color: #fff;
+}
+
+td, th {
+    border: 1px solid #dddddd;
+    text-align: center;
+    padding: 8px;
+}
+
+
+th {
+    border: none;
+    border-bottom: 1px solid #f6f6f6;
+}
+
+
+.main .msg {
+    margin: 17px;
+    padding: 0.9rem 1.5rem;
+    color: var(--var-sky);
+    font-family: var(--var-font);
+    background-color: #111;
+}
+
+
+@media (max-width:600px) {
+    
+    .up a {
+        width: 100%;
+        text-align: center;
+    }
+
+    .main select {
+        width: 100%;
+    }
+
+    .msg p {
+        font-size: 0.8rem;
+    }
+
+}

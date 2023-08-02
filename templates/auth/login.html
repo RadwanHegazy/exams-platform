@@ -1,0 +1,40 @@
+{% extends 'base.html'%}
+
+
+
+{% block title %}
+تسجيل الدخول
+{% endblock  %}
+
+
+{% block head %} تسجيل الدخول {% endblock %}
+
+
+{% block content %}
+
+<form method="POST">
+
+    <div class="data">
+        {% csrf_token %}
+        <div class="in">
+            <p>البريد الالكتروني</p>
+            <input type="email" name="email" required>
+        </div>
+        <div class="in">
+            <p>كلمة المرور</p>
+            <input type="password" name="password" required>
+        </div>
+        
+        
+    </div>
+    <button class="save" type="submit">تسجيل الدخول</button>
+
+</form>
+
+<script>
+
+    if ("{{msg}}"){
+        alert("{{msg}}")
+    }
+</script>
+{% endblock %}

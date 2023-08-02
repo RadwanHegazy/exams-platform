@@ -1,0 +1,108 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ exam.name }}</title>
+    <link rel="stylesheet" href="{% static 'style/enter-exam.css' %}">
+</head>
+<body>
+    
+
+    <div class="top">
+        <span class="time"></span>
+        <button id="send">ارسال</button>
+    </div>
+
+    <h1 class="title">{{ exam.name }}</h1>
+
+
+    {% for question in questions%}
+    
+        <div class="q">
+            <h1>{{ question.name}}</h1>
+            <select name="answer" id="{{ question.id }}">
+                <option value="#">اختر اجابة</option>
+                <option value="1){{ question.c_1 }}">1) {{ question.c_1 }}</option>
+                <option value="2){{ question.c_2 }}">2) {{ question.c_2 }}</option>
+                <option value="3){{ question.c_3 }}">3) {{ question.c_3 }}</option>
+                <option value="4){{ question.c_4 }}">4) {{ question.c_4 }}</option>
+            </select>
+        </div>
+        
+    {% endfor %}
+
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+
+    <script>
+
+
+
+        var questions = [];
+        var answers = [];
+
+        function FinishExam (){
+            
+            var qs = document.querySelectorAll('select')
+            qs.forEach( q =>{
+
+                questions.push(q.id)
+                answers.push(q.value)
+            })
+
+            $.ajax({
+                url:'.',
+                data:{
+                    'questions':questions,
+                    'answers':answers,
+                },
+                method:'POST',
+            })
+       
+            window.location.href = '/profile/'
+        }
+
+        var timeLabel = document.querySelector('.time');
+        var time_per_min = "{{ exam.time }}"
+
+        document.querySelector('#send').addEventListener('click',function(){
+            if (confirm('هل انت متأكد من انك تريد ارسال الاختبار ؟')) {
+            
+                FinishExam();
+              }
+
+        })
+
+        function startTimer(duration, display) {
+            var timer = duration, minutes, seconds;
+            setInterval(function () {
+                minutes = parseInt(timer / 60, 10);
+                seconds = parseInt(timer % 60, 10);
+        
+                minutes = minutes < 10 ? "0" + minutes : minutes;
+                seconds = seconds < 10 ? "0" + seconds : seconds;
+        
+                display.textContent = minutes + ":" + seconds;
+        
+                if (--timer < 0) {
+                    timer = duration;
+                    FinishExam();
+                }
+            }, 1000);
+        }
+        
+        window.onload = function () {
+           
+            var fiveMinutes = 60 * time_per_min;
+            startTimer(fiveMinutes, timeLabel);
+
+        };
+    
+    
+    </script>
+
+</body>
+</html>

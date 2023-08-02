@@ -1,0 +1,34 @@
+{% extends 'base.html' %}
+
+{% block title %} أختباراتك {% endblock %}
+
+{% block head %} أختباراتك {% endblock %}
+
+
+{% block content %}
+
+<table>
+            
+    <tr>
+        <th>التاريخ</th>
+        <th>الدرجة</th>
+        <th>الامتحان</th>
+    </tr>
+    
+    {% for exam in exams %}
+        
+        <tr>
+            <td>{{ exam.date |date:"Y-m-d" }}</td>
+            <td>{{ exam.mark }}</td>
+            {% if exam.exam.can_view_correct_answer %}
+                <td><a href="{% url 'exam_answers' exam.exam.id %}">{{ exam.exam }}</a></td>
+            {% else %}
+                <td>{{ exam.exam }}</td>
+            {% endif %}
+        </tr>
+
+    {% endfor %}
+    
+
+  </table>
+{% endblock %}

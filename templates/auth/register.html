@@ -1,0 +1,52 @@
+{% extends 'base.html'%}
+
+
+
+{% block title %}
+انشاء حساب
+{% endblock  %}
+
+
+{% block head %} انشاء حساب {% endblock %}
+
+
+{% block content %}
+
+<form method="POST">
+
+    <div class="data">
+        {% csrf_token %}
+        <div class="in">
+            <p>اسم المستخدم</p>
+            <input type="text" name="username" required>
+        </div>
+        <div class="in">
+            <p>البريد الالكتروني</p>
+            <input type="email" name="email" required>
+        </div>
+        <div class="in">
+            <p>الصف الدراسي</p>
+            <select name="level" required>
+                {% for level in levels %}
+                    <option value="{{ level.name }}">{{ level.name }}</option>
+                {% endfor %}
+            </select>
+        </div>
+        <div class="in">
+            <p>كلمة المرور</p>
+            <input type="password" name="password" required>
+        </div>
+        
+        
+    </div>
+    <button class="save" type="submit">انشاء حساب</button>
+
+</form>
+
+<script>
+
+    if ("{{msg}}"){
+        alert("{{msg}}")
+    }
+</script>
+{% endblock %}

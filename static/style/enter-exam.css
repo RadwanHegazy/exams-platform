@@ -1,0 +1,138 @@
+@import url('https://fonts.googleapis.com/css2?family=Cairo&display=swap');
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+:root{
+    --var-sky:#07C3FE;
+    --var-font: 'Cairo', sans-serif;
+}
+
+
+.top {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    padding: 1rem 2rem;
+    background-color: #0baddf;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    z-index: 2;
+}
+
+.top span {
+    font-family: var(--var-font);
+    color: #fff;
+    font-weight: bold;
+}
+
+.top button{
+    background-color: #0fc7ff;
+    color: #fff;
+    border: 2px solid #fff;
+    outline: none;
+    border-radius: 8px;
+    padding: 0.6rem 1.6rem;
+    font-weight: bold;
+    font-family: var(--var-font);
+}
+
+.title {
+    width: 100%;
+    padding-top: 100px;
+    text-align: center;
+    color: var(--var-sky);
+    font-family: var(--var-font);
+    font-weight: bold;
+}
+
+
+.q{
+    position: relative;
+    width: 600px;
+    margin: 50px auto;
+    box-shadow: 0px 3px 20px #00000010;
+    padding: 1rem 2rem;
+    border-radius: 8px;
+}
+
+.q h1 {
+    font-family: var(--var-font);
+    text-align: center;
+    color: #999;
+}
+
+.q select {
+    width: 100%;
+    padding: 0.5rem 1rem;
+    font-family: var(--var-font);
+    border: 1px solid var(--var-sky);
+    color: var(--var-sky);
+    outline: none;
+}
+
+
+
+
+
+.q p {
+    width: 100%;
+    padding: 1rem 2rem;
+    margin: 7px;
+    border-radius: 12px;
+    font-family: var(--var-font);
+}
+
+.q p.correct {
+    background-color: #82FF06;
+    color: #fff;
+}
+
+.q p.student_answer {
+    background-color: crimson;
+    color: #fff;
+}
+
+
+.note {
+    background-color: #fff;
+    width: 100%;
+    padding: 1rem 2rem;
+    color: #fff;
+    font-weight: bold;
+    border: 2px solid #07C3FE;
+    font-family: var(--var-font);
+    background-color: #086683;
+    text-align: center;
+}
+
+
+
+
+.top a{
+    color: #fff;
+    border: 2px solid #fff;
+    background-color: var(--var-sky);
+    padding: 0.5rem 1.2rem;
+    text-decoration: none;
+    border-radius: 8px;
+    font-family: var(--var-font);
+}
+
+@media (max-width:650px){
+    .q{
+        width: 90%;
+    }
+
+    .q h1{
+        font-size: 1.5rem;
+    }
+    
+    .note {
+        font-size: 0.8rem;
+    }
+}

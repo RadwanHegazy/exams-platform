@@ -1,0 +1,218 @@
+@import url('https://fonts.googleapis.com/css2?family=Cairo&display=swap');
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+:root{
+    --var-sky:#07C3FE;
+    --var-font: 'Cairo', sans-serif;
+}
+
+.bg{
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: -1;
+}
+
+.top {
+    position: relative;
+    text-align: center;
+    padding: 1rem 2rem;
+    color: #fff;
+    backdrop-filter: blur(24px);
+    font-family: var(--var-font);
+    background-color: #e4e4e42a;
+}
+
+
+.box {
+    position: relative;
+    margin: 10px auto;
+    background-color: #ffffff20;
+    backdrop-filter: blur(17px);
+    width: 600px;
+    height: auto;
+    border-radius: 80px;
+    padding: 1rem 2rem;
+
+}
+
+.box h1 {
+    text-align: center;
+    color: #fff;
+    font-family: var(--var-font);
+    text-shadow: 0px 2px 17px #ffffff50;
+}
+
+
+.options {
+    width: 100%;
+    height: auto;
+    margin-top: 30px;
+    height: auto;
+    gap: 10px;
+    display: flex;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+    align-items: center;
+}
+
+.options a{
+    width: 30%;
+    border-radius: 20px;
+    background-color: #2460B9;
+    height: 120px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    text-decoration: none;
+    font-family: var(--var-font);
+    color: #fff;
+}
+
+.options a:nth-child(4) img, .options a:nth-child(6) img{
+    width: 30%;
+}
+
+
+.back {
+    position: absolute;
+    top: 10px;
+    left: 25px;
+    width: 50px;
+    height: 50px;
+    padding-left: 7px;
+    padding-top: 7px;
+    overflow: hidden;
+    border: 2px solid #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-top-left-radius: 60px;
+    background-color: var(--var-sky);
+}
+
+.back img {
+    max-width: 60%;
+    height: auto;
+    height: auto;
+}
+
+.data {
+    width: 100%;
+    height: auto;
+    margin: 30px auto;
+}
+
+
+.data .in {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    background-color: #17171739;
+    gap: 8px;
+    padding: 7px 13px;
+    font-family: var(--var-font);
+    margin: 7px;
+    border-right: 13px solid var(--var-sky);
+}
+
+.in select {
+    width: 100%;
+    color: var(--var-sky);
+    font-family: var(--var-font);
+    direction: rtl;
+    outline: none;
+    background: #ffffff50;
+    border: none;
+}
+
+
+.in p {
+    font-weight: bold;
+    color: #fff;
+}
+
+.in input {
+    width: 100%;
+    background-color: transparent;
+    border: none;
+    outline:none;
+    direction: rtl;
+    font-weight: bold;
+    color: #949090;
+    font-family: var(--var-font);
+}
+
+
+.save{
+    width: 100%;
+    padding: 1rem 2rem;
+    font-family: var(--var-font);
+    font-weight: bold;
+    border: none;
+    background-color: var(--var-sky);
+    color: #fff;
+    border-radius: 12px;
+}
+
+
+table {
+    font-family: var(--var-font);
+    border-collapse: collapse;
+    width: 100%;
+    color: #fff;
+}
+
+td, th {
+    border: 1px solid #dddddd;
+    text-align: center;
+    padding: 8px;
+}
+
+
+th {
+    border: none;
+    border-bottom: 1px solid #f6f6f6;
+}
+
+
+
+
+@media (max-width:600px) {
+    
+    .box {
+        position: relative;
+        margin: 10px auto;
+        top: 0;
+        left: 0;
+        transform: translate(0,0);
+        width: 100%;
+        border-radius: 0px;
+        height: 100vh;
+    
+    }
+
+    .box .options a {
+        width: 150px;
+        height: 100px;
+    }
+
+    table {
+        font-size: 0.9rem;
+    }
+}
+
+@media (max-width:500px){
+    table {
+        font-size: 0.6rem;
+        font-weight: bold;
+    }
+}

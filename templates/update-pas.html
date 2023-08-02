@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+
+
+{% block title %} تغير كلمة المرور {% endblock %}
+
+
+{% block head %} تغير كلمة المرور {% endblock %}
+
+{% block content %}
+
+<form  method="post">
+    {% csrf_token %}
+    <div class="data">
+    
+        <div class="in">
+            <p>كلمة المرور الجديدة</p>
+            <input name="new_pas" required type="password" placeholder="ادخل كلمة المرور" >
+        </div>
+        
+        <div class="in">
+            <p> اعد كتابة كلمة المرور الجديدة</p>
+            <input name="new_pas_2" required type="password" placeholder="اعد ادخال البريد الالكتروني" >
+        </div>
+        
+    </div>
+    
+    <button class="save">حفظ التغيرات</button>
+</form>
+
+
+
+<script>
+    if ("{{msg}}"){
+        alert("{{msg}}")
+    }
+</script>
+{% endblock %}

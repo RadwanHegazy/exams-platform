@@ -1,0 +1,56 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ exam.name }}</title>
+    <link rel="stylesheet" href="{% static 'style/enter-exam.css' %}">
+</head>
+<body>
+    
+
+    <div class="top">
+        <span class="time">جميع اخطائك</span>
+        <a href="{% url 'profile' %}">الرجوع</a>
+    </div>
+
+    {% if not questions %}
+        <h1 class="title"> لا توجد اخطاء</h1>
+    {% else %}
+        <h1 class="title"> {{ count }} : جميع اخطائك</h1>
+    {% endif %}
+
+    <style>
+
+    </style>
+
+    {% for question in questions%}
+    
+        <div class="q">
+            <h1>{{ question.name}}</h1>
+            {% for choice in question.choices %}
+                
+                {% if question.correct == choice %}
+                    <p class="correct">{{ question.correct }}</p>
+                {% elif question.student_answer == choice  %}
+                    <p class="student_answer">{{ choice }}</p>
+                {% else %}
+                    <p>{{ choice }}</p>
+                {% endif %}
+                
+
+            {% endfor %}
+
+            {% if question.note %}
+                <div class="note">{{ question.note }}</div>
+            {% endif %}
+        </div>
+        
+    {% endfor %}
+
+
+    
+</body>
+</html>

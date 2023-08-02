@@ -1,0 +1,38 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> {% block title %} {% endblock %} </title>
+    <link rel="stylesheet" href="{% static 'style/profile.css' %}">
+</head>
+<body>
+
+
+    <!-- background -->
+    <img src="{% static 'images/profile.png' %}" alt="" class="bg">
+    
+
+    <div class="top">
+        <p>تم التصميم والتطوير بواسطة  <a target="_blank" href="https://www.facebook.com/radwan.gaber.hijazi/">الباشمبرمج رضوان </a></p>
+    </div>
+
+
+    <div class="box">
+
+        <a href="{% url 'index' %}" class="back"><img src="{% static 'images/home.png' %}" alt="back image"></a>
+        
+        
+
+        <h1> {% block head %} {% endblock %} </h1>
+
+
+        {% block content %} {% endblock %}
+        
+    </div>
+
+
+</body>
+</html>

@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+
+
+{% block title %} تعديل بياناتك {% endblock %}
+
+
+{% block head %} تعديل بياناتك {% endblock %}
+
+{% block content %}
+
+<form  method="post">
+    {% csrf_token %}
+    <div class="data">
+                
+        <div class="in">
+            <p>اسم المستخدم</p>
+            <input name="username" required type="text" value="{{ user.username }}" placeholder="ادخل اسم المستتخدم">
+        </div>
+    
+        <div class="in">
+            <p>البريد الالكتروني</p>
+            <input name="email" required type="email" placeholder="ادخل البريد الالكتروني" value="{{ user.email }}">
+        </div>
+        
+    </div>
+    
+    <button class="save">حفظ التغيرات</button>
+</form>
+
+
+{% endblock %}

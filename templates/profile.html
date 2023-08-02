@@ -1,0 +1,52 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %} الملف الشخصي {% endblock %}
+
+
+{% block head %} {{ user.username }} {% endblock %} 
+
+
+{% block content  %}
+
+<div class="options">
+
+    <a href="{% url 'user_exams' %}">
+        <img src="{% static 'images/exams.png' %}" alt="">
+        <p>اختباراتك</p>
+    </a>
+
+
+    <a href="{% url 'wrong_answers' %}">
+        <img src="{% static 'images/wrong.png' %}" alt="">
+        <p>اخطائك</p>
+    </a>
+
+
+    <a href="{% url 'index' %}">
+        <img src="{% static 'images/lead.png' %}" alt="">
+        <p>المتصدرون</p>
+    </a>
+
+
+    <a href="{% url 'update_info' %}">
+        <img src="{% static 'images/update-data' %}.png" alt="">
+        <p>تعديل بياناتك</p>
+    </a>
+
+
+    <a href="{% url 'update_pas' %}">
+        <img src="{% static 'images/update-pas' %}.png" alt="">
+        <p>تغير كلمة المرور</p>
+    </a>
+
+
+    <a href="{% url 'logout' %}">
+        <img src="{% static 'images/logout.png' %}" alt="">
+        <p>تسجيل الخروج</p>
+    </a>
+
+
+</div>
+
+{% endblock %}
